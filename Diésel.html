@@ -1,0 +1,123 @@
+<!--Javier Eduardo Cantoral Barrera // Carné: 0909-21-93-->
+<!--Okkan Omar Chávez Gómez // Carné: 0909-21-5575-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gasolinería JL & GO || Diésel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        .fondo{
+            background-color: forestgreen;
+        }
+        .titulo{
+            text-align: center;
+            margin:10px 500px;
+            padding:30px;
+            font-size:italic;
+            background-color:rgb(204, 255, 204);
+            color:#000;
+        }
+    </style>
+</head>
+<body class="fondo">
+    
+<br><h1 class="titulo">Depósito de Gasolina Diésel (Q26.85)</h1><b><h4 style="padding: 5; text-align: center; color: black;" >"La Vida Es Como Un Taxi; Por Más Que Suba Gente, Todos Tienen Su Parada"</h4></b><br><br>
+<div style="text-align: center; background: rgb(250, 250, 250); font-size: 25px;" class="row">
+    <div class="col-md-4">
+        <a href="Súper.html">Cambiar a Súper</a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="index.html">Volver a Inicio</a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="Regular.html">Cambiar a Regular</a>
+    </div>
+    
+</div><br></br>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+        <form action=" ">
+            <b style="padding: 10px; background-color: rgb(204, 255, 204); margin-right: 4%;">Ingresa la cantidad de Galones de gasolina que Deseas Recargar: </b>
+            <input type="text" style="width: 288xp;" height="98xp;" size="32" placeholder="Números Enteros o Decimales" id="gasolina">
+        </form>
+    </div>
+    <div class="col-md-2">
+        <input type="button" value="Si Desea Galosina por Fracciones Oprima Aquí"  id="fraccion" onclick="alert(ejecutar3(1));">
+    </div>
+</div>
+
+
+<br><br><br><h5 style="text-align: center;">↓↓↓ Elija el metodo de pago con el que desea pagar ↓↓↓</h5><br><br><br>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+     <input style="padding: 10px;" type="button" value="Tarjeta de Crédito" class="container" id="tc" onclick="alert( ejecutar1(1) );"> 
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <input style="padding: 10px;" type="button" value="Pago en Efectivo" class="container" id="pe" onclick="alert( ejecutar2(1) );">
+    </div>
+</div>
+
+<script>
+    var ejecutar3 = function(n3){
+    var nominador = prompt("Ingrese el Nominador:");
+    var denominador = prompt("Ingrese el Denomidador");
+    
+    var resultadofraccion = (nominador/denominador).toFixed(2);
+    
+    return "Tu Número de Galones es en: "+resultadofraccion+". Ingresa esa cantidad en el espacio donde te pide los galones y efectúa tu pago.";
+    }
+</script>
+
+<script>
+    var ejecutar1 = function(n1){     
+    var n1 = parseFloat(document.getElementById("tc").value); 
+    var gaso = parseFloat(document.getElementById("gasolina").value);
+    var pin = prompt("Ingresa tu pin")
+
+    if(pin>1111111 && pin<9999999){
+        
+        var multigaso = (gaso*26.85).toFixed(2);
+        var gaso2 = multigaso-multigaso;
+
+    return "Usted pagó por " + gaso + " galones un total de Q"+multigaso+ ". El cuál se le ha descontado de su tarjeta de crédito. Gracias por preferinos, tenga un gran día.";
+
+    }else{
+            alert("Esta contraseña es inválida");
+            return "Pulsa en 'aceptar' para reiniciar el programa";
+         } 
+}
+</script>
+
+<script>
+    var ejecutar2 = function(n2){     
+        var n2 = parseFloat(document.getElementById("pe").value); 
+        var gaso = parseFloat(document.getElementById("gasolina").value);
+   
+        var multigaso = (gaso*26.85).toFixed(2);
+        alert("Deberá pagar Q"+multigaso);
+
+        var pato = parseFloat(prompt("Ingresa el valor del billete con el que pagarás:"));
+
+        var gaso3 = (pato-multigaso).toFixed(2);
+
+        if(pato<multigaso){
+            return "El valor de su billete no es suficiente "
+        }
+
+        return "Usted pagó por "+gaso+" galones un total de Q"+multigaso+". Dado a que su billete tiene un valor de Q"+pato+", su cambio es de Q"+gaso3+". Gracias por preferinos, tenga un gran día.";
+    }
+    </script>
+    <h1 style="text-align: center;"> <br><br>
+        <img src="https://alianzaflotillera.com/wp-content/uploads/2020/05/diesel-768x486.jpg" alt="Gasolina diesel" width="700px " >
+    </h1>
+</body>
+</html>
